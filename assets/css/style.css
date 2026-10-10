@@ -1,0 +1,998 @@
+/*
+ * thymeit.lixlink.com — shared stylesheet.
+ * Layout concept: a garden almanac read along the year. The hero states the promise next
+ * to a real task card; the signature section is a twelve-month ruler where every care
+ * window slides with the reader's frost dates.
+ * Brand tokens come from the app (docs/product/brand-guidelines.md in bitPimps/thymeit).
+ */
+
+:root {
+  /* Brand */
+  --thyme: #2a5a3a; /* Thyme Green: wordmark, headings, primary surfaces */
+  --fresh: #54a76a; /* Fresh Green: primary actions, success */
+  --orange: #f2994a; /* Timing Orange: the "it", secondary accents */
+  --amber: #f59e0b; /* Amber Notification: due-now badges */
+
+  /* Neutrals, tinted toward thyme green */
+  --bg: #f9fafb; /* Surface */
+  --bg-soft: #eef3ef;
+  --card: #ffffff;
+  --ink: #1f2937; /* Dark Gray */
+  --muted: #4b5563; /* Base Text */
+  --line: #d9e3dc;
+
+  /* Derived */
+  --heading: var(--thyme);
+  --link: #2a5a3a;
+  --frost: #dde6ee; /* "frost likely" shading on the season ruler */
+  --frost-ink: #4c6278;
+  --band-bg: #2a5a3a; /* full-bleed privacy band */
+  --band-ink: #f2f7f3;
+  --band-muted: #c6dccd;
+  --on-accent: #ffffff;
+  --due-ink: #1f2937;
+  --shadow: 0 1px 2px rgb(31 41 55 / 6%), 0 12px 32px -12px rgb(42 90 58 / 22%);
+
+  /* Type */
+  --font-display: 'Outfit', ui-rounded, 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --step--1: 0.875rem;
+  --step-0: 1rem;
+  --step-1: 1.125rem;
+  --step-2: 1.375rem;
+  --step-3: clamp(1.6rem, 1.2rem + 1.6vw, 2.25rem);
+  --step-4: clamp(2.3rem, 1.5rem + 3.6vw, 4rem);
+
+  --radius: 14px;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+  --max: 72rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #0e1612;
+    --bg-soft: #131e18;
+    --card: #17231c;
+    --ink: #e7efe9;
+    --muted: #a8b8ad;
+    --line: #26362c;
+    --heading: #8fd3a0;
+    --link: #8fd3a0;
+    --fresh: #5cb874;
+    --orange: #f4a764;
+    --frost: #1c2a36;
+    --frost-ink: #a9bdd1;
+    --band-bg: #17291e;
+    --band-ink: #eef6f0;
+    --band-muted: #b3cbbb;
+    --on-accent: #0e1612;
+    --shadow: 0 1px 2px rgb(0 0 0 / 40%), 0 12px 32px -12px rgb(0 0 0 / 60%);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg: #0e1612;
+  --bg-soft: #131e18;
+  --card: #17231c;
+  --ink: #e7efe9;
+  --muted: #a8b8ad;
+  --line: #26362c;
+  --heading: #8fd3a0;
+  --link: #8fd3a0;
+  --fresh: #5cb874;
+  --orange: #f4a764;
+  --frost: #1c2a36;
+  --frost-ink: #a9bdd1;
+  --band-bg: #17291e;
+  --band-ink: #eef6f0;
+  --band-muted: #b3cbbb;
+  --on-accent: #0e1612;
+  --shadow: 0 1px 2px rgb(0 0 0 / 40%), 0 12px 32px -12px rgb(0 0 0 / 60%);
+  color-scheme: dark;
+}
+
+/* ---- Base ---------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  color: var(--heading);
+  line-height: 1.12;
+  margin: 0;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--step-4);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--step-3);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: var(--step-1);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+p {
+  margin: 0;
+  max-width: 65ch;
+}
+
+a {
+  color: var(--link);
+  text-underline-offset: 0.18em;
+}
+
+:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.eyebrow {
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fresh);
+}
+
+.lede {
+  font-size: var(--step-1);
+  color: var(--muted);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip {
+  position: absolute;
+  left: -999px;
+}
+
+.skip:focus {
+  left: var(--gutter);
+  top: 0.5rem;
+  z-index: 10;
+  background: var(--card);
+  padding: 0.5rem 0.75rem;
+}
+
+/* ---- Wordmark ------------------------------------------------------------------------- */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.brand .mark {
+  flex: none;
+  color: var(--heading); /* the clock follows the theme; stays Thyme Green in light mode */
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+/* Never recolor the split: "thyme" green, "it" orange (brand-guidelines.md §1). */
+.wordmark .thyme {
+  color: var(--heading);
+}
+
+.wordmark .it {
+  color: var(--orange);
+}
+
+/* ---- Header ----------------------------------------------------------------------------- */
+
+.site-header {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 5;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.75rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2.5vw, 1.75rem);
+  font-size: var(--step--1);
+  font-weight: 500;
+}
+
+.nav a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: var(--heading);
+}
+
+.nav .pill {
+  background: var(--thyme);
+  color: #fff;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font: inherit;
+    font-size: var(--step--1);
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.45rem 0.8rem;
+    cursor: pointer;
+  }
+
+  .nav {
+    position: absolute;
+    inset: 100% 0 auto 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    padding: 0.5rem var(--gutter) 1rem;
+  }
+
+  .nav[hidden] {
+    display: none;
+  }
+
+  .nav a {
+    padding: 0.7rem 0;
+    font-size: var(--step-0);
+  }
+
+  .nav .pill {
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (min-width: 721px) {
+  .nav[hidden] {
+    display: flex !important;
+  }
+}
+
+/* ---- Hero -------------------------------------------------------------------------------- */
+
+.hero {
+  padding-block: clamp(2.5rem, 7vw, 5.5rem) clamp(2rem, 5vw, 4rem);
+}
+
+.hero .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+.hero-copy {
+  display: grid;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+.hero h1 .when {
+  color: var(--orange);
+}
+
+.store-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.store-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  border: 1.5px dashed var(--line);
+  background: var(--card);
+  color: var(--ink);
+  font-size: var(--step--1);
+  line-height: 1.25;
+}
+
+.store-badge strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--step-0);
+}
+
+.store-badge small {
+  color: var(--muted);
+}
+
+.text-link {
+  font-weight: 600;
+  font-size: var(--step--1);
+}
+
+/* Phone mock: the app's real home screen copy (src/app/home.tsx, plant library). */
+.phone {
+  justify-self: center;
+  width: min(100%, 20rem);
+  aspect-ratio: 9 / 18.5;
+  max-width: 100%;
+  border-radius: 2.6rem;
+  padding: 0.7rem;
+  background: #1c2620;
+  box-shadow: var(--shadow), inset 0 0 0 2px #3a4a40;
+  position: relative;
+}
+
+.phone-screen {
+  height: 100%;
+  border-radius: 2rem;
+  background: var(--bg);
+  overflow: hidden;
+  padding: 2.4rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+}
+
+.phone-screen::before {
+  content: '';
+  position: absolute;
+  top: 0.65rem;
+  left: 50%;
+  width: 5.5rem;
+  height: 1.4rem;
+  translate: -50% 0;
+  border-radius: 999px;
+  background: #1c2620;
+}
+
+.app-title {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--heading);
+  line-height: 1.05;
+}
+
+.app-zone {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--muted);
+  margin-top: -0.4rem;
+}
+
+.task {
+  background: var(--card);
+  border-radius: 12px;
+  border-left: 4px solid var(--fresh);
+  padding: 0.8rem;
+  display: grid;
+  gap: 0.45rem;
+  box-shadow: 0 1px 2px rgb(31 41 55 / 8%);
+}
+
+.task-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.task-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.badge {
+  flex: none;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: 999px;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.badge.due {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: var(--due-ink);
+}
+
+.task-copy {
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.task-actions {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.btn-app {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 9px;
+  background: var(--fresh);
+  color: var(--on-accent);
+}
+
+.app-add {
+  margin-top: auto;
+}
+
+.btn-app.secondary {
+  background: var(--card);
+  color: var(--heading);
+  border: 1px solid var(--line);
+}
+
+/* ---- Sections ---------------------------------------------------------------------------- */
+
+.section {
+  padding-block: clamp(3rem, 8vw, 6rem);
+}
+
+.section-head {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+/* ---- Season ruler (signature) ------------------------------------------------------------ */
+
+.season {
+  background: var(--bg-soft);
+  border-block: 1px solid var(--line);
+}
+
+.city-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.city-picker button {
+  font: inherit;
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.5rem 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 0.45rem;
+  align-items: baseline;
+}
+
+.city-picker button .zone {
+  font-weight: 500;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.city-picker button[aria-pressed='true'] {
+  background: var(--thyme);
+  border-color: var(--thyme);
+  color: #fff;
+}
+
+.city-picker button[aria-pressed='true'] .zone {
+  color: #cfe5d6;
+}
+
+.ruler {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.25rem clamp(0.9rem, 3vw, 1.5rem) 1rem;
+  box-shadow: var(--shadow);
+  overflow-x: auto;
+}
+
+.ruler-inner {
+  min-width: 36rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.ruler-row {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+}
+
+.ruler-label {
+  font-size: var(--step--1);
+  line-height: 1.3;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.ruler-label span {
+  display: block;
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.track {
+  position: relative;
+  height: 1.9rem;
+  border-radius: 8px;
+  background:
+    linear-gradient(to right, var(--frost) var(--last), transparent var(--last)),
+    linear-gradient(to left, var(--frost) calc(100% - var(--first)), transparent calc(100% - var(--first))),
+    var(--bg-soft);
+}
+
+.track::after {
+  /* month gridlines */
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background: repeating-linear-gradient(
+    to right,
+    transparent 0,
+    transparent calc(100% / 12 - 1px),
+    var(--line) calc(100% / 12 - 1px),
+    var(--line) calc(100% / 12)
+  );
+  pointer-events: none;
+}
+
+.window {
+  position: absolute;
+  top: 0.3rem;
+  bottom: 0.3rem;
+  border-radius: 6px;
+  z-index: 1;
+  transition:
+    left 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+    width 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.window.prune {
+  background: var(--fresh);
+}
+
+.window.plant {
+  background: var(--orange);
+}
+
+/* Estimated windows (bloom-relative timing): striped, so they never read as exact. */
+.window.estimated,
+.swatch-estimate {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent 0 4px,
+    rgb(255 255 255 / 45%) 4px 7px
+  );
+}
+
+.swatch-estimate {
+  background-color: var(--fresh);
+}
+
+.ruler-axis .track {
+  height: auto;
+  background: none;
+}
+
+.ruler-axis .track::after {
+  display: none;
+}
+
+.months {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.frost-marks {
+  /* Two lines, so the labels can never collide; each extends toward the middle of the year. */
+  position: relative;
+  height: 2.6rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--frost-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.frost-marks span {
+  position: absolute;
+  white-space: nowrap;
+  transition: left 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.frost-marks .last {
+  top: 0.1rem;
+  padding-left: 0.35rem;
+  border-left: 2px solid var(--frost-ink);
+}
+
+.frost-marks .first {
+  top: 1.35rem;
+  translate: -100% 0;
+  padding-right: 0.35rem;
+  border-right: 2px solid var(--frost-ink);
+}
+
+.ruler-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.ruler-legend i {
+  display: inline-block;
+  width: 0.9rem;
+  height: 0.6rem;
+  border-radius: 3px;
+  margin-right: 0.35rem;
+  vertical-align: 0.05em;
+}
+
+.swatch-prune {
+  background: var(--fresh);
+}
+
+.swatch-plant {
+  background: var(--orange);
+}
+
+.swatch-frost {
+  background: var(--frost);
+  outline: 1px solid var(--line);
+}
+
+.ruler-note {
+  margin-top: 1.25rem;
+  font-size: var(--step--1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .window,
+  .frost-marks span {
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ---- Features ---------------------------------------------------------------------------- */
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 5vw, 4rem);
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr);
+  gap: 0.25rem 1rem;
+  align-items: start;
+}
+
+.feature svg {
+  grid-row: span 2;
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.feature p {
+  font-size: var(--step-0);
+}
+
+.feature .detail {
+  grid-column: 2;
+  font-size: var(--step--1);
+  color: var(--muted);
+  margin-top: 0.35rem;
+}
+
+/* ---- Privacy band ------------------------------------------------------------------------- */
+
+.band {
+  background: var(--band-bg);
+  color: var(--band-muted);
+}
+
+.band h2 {
+  color: var(--band-ink);
+}
+
+.band .eyebrow {
+  color: var(--orange);
+}
+
+.band-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.facts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.1rem;
+}
+
+.facts li {
+  display: grid;
+  gap: 0.2rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid rgb(255 255 255 / 14%);
+}
+
+.facts li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.facts strong {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  color: var(--band-ink);
+  font-weight: 600;
+}
+
+/* ---- Sources --------------------------------------------------------------------------------- */
+
+.sources-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+.ledger {
+  margin: 0;
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+
+.ledger div {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+
+.ledger dt {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 700;
+  color: var(--heading);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.ledger dd {
+  margin: 0;
+  font-size: var(--step--1);
+}
+
+.quote {
+  margin: 0;
+  padding: 1.25rem 1.4rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  display: grid;
+  gap: 0.75rem;
+}
+
+.quote blockquote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.quote figcaption {
+  font-size: 0.8rem;
+}
+
+/* ---- Pricing + footer ------------------------------------------------------------------------ */
+
+.price {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: calc(var(--radius) + 6px);
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+
+.price-copy {
+  display: grid;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.price .amount {
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  font-weight: 700;
+  color: var(--heading);
+  line-height: 1;
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding-block: 2rem 2.5rem;
+  font-size: var(--step--1);
+}
+
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  align-items: center;
+}
+
+/* ---- Responsive ------------------------------------------------------------------------------ */
+
+@media (max-width: 860px) {
+  .hero .wrap,
+  .band-grid,
+  .sources-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .phone {
+    width: min(100%, 18rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .features {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Phones: label above its track, so the year gets the full width. */
+  .ruler-inner {
+    min-width: 0;
+    gap: 0.8rem;
+  }
+
+  .ruler-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.3rem;
+  }
+
+  .ruler-row > span:empty {
+    display: none;
+  }
+
+  .ruler-label span {
+    display: inline;
+    margin-left: 0.35rem;
+  }
+
+  .months {
+    font-size: 0.6rem;
+    letter-spacing: 0;
+  }
+
+
+  .ledger div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.25rem;
+  }
+}

@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>ThymeIt: Garden Planting &amp; Pruning Calendar</title>
+    <meta
+      name="description"
+      content="ThymeIt turns your ZIP code into a garden calendar for the plants you actually grow, including when to prune trees, shrubs and perennials. Free, no account, and your garden stays on your phone."
+    />
+    <meta name="theme-color" content="#2A5A3A" />
+    <link rel="icon" href="assets/img/app-icon.svg" type="image/svg+xml" />
+    <meta property="og:title" content="ThymeIt: Garden Planting & Pruning Calendar" />
+    <meta
+      property="og:description"
+      content="Know exactly when to prune, plant and protect, timed to your ZIP code's frost dates."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://thymeit.lixlink.com/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="./" aria-label="ThymeIt home">
+          <svg class="mark" viewBox="0 0 100 100" width="32" height="32" aria-hidden="true"><circle cx="50" cy="50" r="43" fill="none" stroke="currentColor" stroke-width="7"/><g stroke="currentColor" stroke-width="5" stroke-linecap="round"><line x1="50" y1="14" x2="50" y2="20"/><line x1="86" y1="50" x2="80" y2="50"/><line x1="50" y1="86" x2="50" y2="80"/><line x1="14" y1="50" x2="20" y2="50"/><line x1="50" y1="50" x2="31" y2="39"/></g><g fill="currentColor"><path d="M48.6 50 L48.6 22 Q50 19 51.4 22 L51.4 50 Z"/><ellipse cx="57" cy="28" rx="5.2" ry="2.3" transform="rotate(-35 57 28)"/><ellipse cx="57.5" cy="36" rx="5.2" ry="2.3" transform="rotate(-35 57.5 36)"/><ellipse cx="57" cy="43.5" rx="4.6" ry="2.1" transform="rotate(-35 57 43.5)"/><ellipse cx="44" cy="31" rx="4.6" ry="2.1" transform="rotate(35 44 31)"/><ellipse cx="44" cy="39" rx="4.2" ry="2" transform="rotate(35 44 39)"/><circle cx="50" cy="50" r="5"/></g></svg>
+          <span class="wordmark"><span class="thyme">thyme</span><span class="it">it</span></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          Menu
+        </button>
+        <nav class="nav" id="site-nav" aria-label="Main" hidden>
+          <a href="#season">How timing works</a>
+          <a href="#features">Features</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#sources">Sources</a>
+          <a class="pill" href="#download">Get ThymeIt</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Hero: the promise, next to the app's real task card -->
+      <section class="hero">
+        <div class="wrap">
+          <div class="hero-copy">
+            <p class="eyebrow">Planting &amp; pruning calendar</p>
+            <h1>Know exactly <span class="when">when</span> to prune, plant and protect.</h1>
+            <p class="lede">
+              ThymeIt turns your ZIP code into a garden calendar for the plants you actually
+              grow. Your apple tree, your lilac and your hydrangeas, not just tomatoes. You get a
+              reminder the morning each job is due.
+            </p>
+            <div class="store-row" id="download">
+              <span class="store-badge">
+                <span><small>Coming soon to the</small><strong>App Store</strong></span>
+              </span>
+              <span class="store-badge">
+                <span><small>Coming soon to</small><strong>Google Play</strong></span>
+              </span>
+              <a class="text-link" href="#season">See how the timing works</a>
+            </div>
+          </div>
+
+          <div class="phone" role="img" aria-label="The ThymeIt home screen: apple tree pruning due now, peas to plant in 3 days, and tomatoes to plant in 6 weeks.">
+            <div class="phone-screen" aria-hidden="true">
+              <div class="app-title">Your garden</div>
+              <div class="app-zone">Zone 6b</div>
+              <div class="task">
+                <div class="task-head">
+                  <span class="task-title">Pruning: Apple Tree</span>
+                  <span class="badge due">DUE NOW</span>
+                </div>
+                <p class="task-copy">
+                  Prune your apple tree while it’s still dormant, before buds break.
+                </p>
+                <div class="task-actions">
+                  <span class="btn-app">Mark Complete</span>
+                  <span class="btn-app secondary">Snooze 3 days</span>
+                </div>
+              </div>
+              <div class="task">
+                <div class="task-head">
+                  <span class="task-title">Planting: Peas</span>
+                  <span class="badge">Due in 3 days</span>
+                </div>
+                <p class="task-copy">Sow your peas now. They handle the cold.</p>
+              </div>
+              <div class="task">
+                <div class="task-head">
+                  <span class="task-title">Planting: Tomato</span>
+                  <span class="badge">Due in 6 weeks</span>
+                </div>
+                <p class="task-copy">Soil’s warm enough: time to transplant your tomatoes.</p>
+              </div>
+              <span class="btn-app app-add">Add or edit plants</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Signature: the year, timed to your frost dates -->
+      <section class="section season" id="season" aria-labelledby="season-title">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">How timing works</p>
+            <h2 id="season-title">Same plants, four ZIP codes, four different calendars.</h2>
+            <p class="lede">
+              Every care window is set from your area’s median last spring frost and first fall
+              frost. Pick a city to watch the year shift.
+            </p>
+          </div>
+
+          <div class="city-picker" role="group" aria-label="Example city">
+            <button type="button" data-city="minneapolis" aria-pressed="false">
+              Minneapolis <span class="zone">5a</span>
+            </button>
+            <button type="button" data-city="chicago" aria-pressed="true">
+              Chicago <span class="zone">6b</span>
+            </button>
+            <button type="button" data-city="atlanta" aria-pressed="false">
+              Atlanta <span class="zone">8a</span>
+            </button>
+            <button type="button" data-city="seattle" aria-pressed="false">
+              Seattle <span class="zone">9a</span>
+            </button>
+          </div>
+
+          <div class="ruler">
+            <p class="sr-only" id="ruler-summary" aria-live="polite"></p>
+            <div class="ruler-inner" id="ruler">
+              <div class="ruler-row ruler-axis" aria-hidden="true">
+                <span></span>
+                <div class="track">
+                  <div class="months">
+                    <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span
+                    ><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span
+                    ><span>Nov</span><span>Dec</span>
+                  </div>
+                  <div class="frost-marks">
+                    <span class="last" id="last-frost">Last frost Apr 10</span>
+                    <span class="first" id="first-frost">First frost Nov 5</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Rows are filled from assets/js/main.js (data from the app's plant library). -->
+            </div>
+            <div class="ruler-legend" aria-hidden="true">
+              <span><i class="swatch-prune"></i>Pruning window</span>
+              <span><i class="swatch-plant"></i>Planting window</span>
+              <span><i class="swatch-frost"></i>Frost likely</span>
+              <span><i class="swatch-estimate"></i>Estimated window</span>
+            </div>
+          </div>
+          <p class="ruler-note">
+            Dates are the windows ThymeIt schedules for each city’s ZIP code. Striped windows are
+            estimates: their sources time them by when a plant finishes blooming or when the ground
+            freezes, which we estimate from your frost dates. Wherever you live, the app works
+            everything out from your own ZIP.
+          </p>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section class="section" id="features" aria-labelledby="features-title">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">What you get</p>
+            <h2 id="features-title">A calendar that knows your yard.</h2>
+          </div>
+          <div class="features">
+            <div class="feature">
+              <svg viewBox="0 0 44 44" aria-hidden="true">
+                <circle cx="22" cy="22" r="21" fill="var(--bg-soft)" />
+                <path d="M14 30 L30 14 M24 14 h6 v6" fill="none" stroke="var(--fresh)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="15" cy="29" r="3" fill="none" stroke="var(--thyme)" stroke-width="2.2" />
+              </svg>
+              <h3>Pruning, not just planting</h3>
+              <p class="detail">
+                When to prune 45 trees, shrubs and perennials: dormant pruning for fruit trees,
+                right after bloom for lilacs, never April to July for oaks.
+              </p>
+            </div>
+            <div class="feature">
+              <svg viewBox="0 0 44 44" aria-hidden="true">
+                <circle cx="22" cy="22" r="21" fill="var(--bg-soft)" />
+                <circle cx="22" cy="22" r="10" fill="none" stroke="var(--thyme)" stroke-width="2.4" />
+                <path d="M22 16 v6 l4 3" fill="none" stroke="var(--orange)" stroke-width="2.4" stroke-linecap="round" />
+              </svg>
+              <h3>A reminder the morning it’s due</h3>
+              <p class="detail">
+                Each task gets its own reminder, scheduled on your phone. No server, no inbox,
+                nothing to check.
+              </p>
+            </div>
+            <div class="feature">
+              <svg viewBox="0 0 44 44" aria-hidden="true">
+                <circle cx="22" cy="22" r="21" fill="var(--bg-soft)" />
+                <path d="M31 19 a10 10 0 1 0 1 7" fill="none" stroke="var(--thyme)" stroke-width="2.4" stroke-linecap="round" />
+                <path d="M31 13 v6 h-6" fill="none" stroke="var(--fresh)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <h3>Every year, on its own</h3>
+              <p class="detail">
+                Mark a job done and next season’s is already scheduled. Skip one and it comes back
+                next year.
+              </p>
+            </div>
+            <div class="feature">
+              <svg viewBox="0 0 44 44" aria-hidden="true">
+                <circle cx="22" cy="22" r="21" fill="var(--bg-soft)" />
+                <path d="M22 33 s-8-8-8-14 a8 8 0 0 1 16 0 c0 6-8 14-8 14z" fill="none" stroke="var(--thyme)" stroke-width="2.4" stroke-linejoin="round" />
+                <circle cx="22" cy="19" r="2.8" fill="var(--orange)" />
+              </svg>
+              <h3>Starts with a ZIP code</h3>
+              <p class="detail">
+                Your hardiness zone and frost dates come from your ZIP, worked out on your phone.
+                Setup takes a couple of minutes, with no account.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Privacy -->
+      <section class="section band" id="privacy" aria-labelledby="privacy-title">
+        <div class="wrap band-grid">
+          <div class="section-head">
+            <p class="eyebrow">Privacy</p>
+            <h2 id="privacy-title">Your garden stays on your phone.</h2>
+            <p>
+              ThymeIt has no server to send your data to. We built it that way on purpose, so
+              there’s nothing to sign up for and nothing to leak.
+            </p>
+          </div>
+          <ul class="facts">
+            <li>
+              <strong>No account</strong>
+              No sign-up, email address or password.
+            </li>
+            <li>
+              <strong>Your exact location is never stored</strong>
+              If you share your location, it’s used once to look up your zone, then only your
+              ZIP code is kept.
+            </li>
+            <li>
+              <strong>Backup goes to your own account</strong>
+              Turn on automatic backup and your garden is saved to a private, app-only folder in
+              your iCloud or Google Drive. We never see it.
+            </li>
+            <li>
+              <strong>No ads, no tracking</strong>
+              Nothing about how you use the app is sent off your phone.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Sources -->
+      <section class="section" id="sources" aria-labelledby="sources-title">
+        <div class="wrap sources-grid">
+          <div class="section-head">
+            <p class="eyebrow">Where the timings come from</p>
+            <h2 id="sources-title">Timings you can check.</h2>
+            <p>
+              Every care task in ThymeIt is tied to guidance published by university extension
+              services and botanic gardens, and your frost dates come from US government climate
+              data. They’re general guidance for your area, not a guarantee for every season.
+            </p>
+          </div>
+          <div style="display: grid; gap: 1.5rem; min-width: 0">
+            <dl class="ledger">
+              <div>
+                <dt>66</dt>
+                <dd>trees, shrubs, perennials and vegetables, each with a cited source</dd>
+              </div>
+              <div>
+                <dt>24</dt>
+                <dd>extension and botanic-garden publications behind the care timings</dd>
+              </div>
+              <div>
+                <dt>40,093</dt>
+                <dd>
+                  US ZIP codes with a 2023 USDA hardiness zone and frost dates from NOAA’s
+                  1991–2020 climate normals (949 of them rarely see frost at all)
+                </dd>
+              </div>
+            </dl>
+            <figure class="quote">
+              <blockquote>
+                “DO NOT prune oaks from April through July to prevent infection by sap beetles.”
+              </blockquote>
+              <figcaption>
+                University of Minnesota Extension, the source behind ThymeIt’s winter-only oak
+                pruning window.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing -->
+      <section class="section" style="padding-top: 0" aria-labelledby="price-title">
+        <div class="wrap">
+          <div class="price">
+            <div class="price-copy">
+              <p class="eyebrow">Price</p>
+              <h2 id="price-title">Free. No ads. No account.</h2>
+              <p>ThymeIt is coming to iPhone and Android. US ZIP codes are supported at launch.</p>
+            </div>
+            <span class="amount" aria-hidden="true">$0</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <a class="brand" href="./" aria-label="ThymeIt home">
+          <svg class="mark" viewBox="0 0 100 100" width="28" height="28" aria-hidden="true"><circle cx="50" cy="50" r="43" fill="none" stroke="currentColor" stroke-width="7"/><g stroke="currentColor" stroke-width="5" stroke-linecap="round"><line x1="50" y1="14" x2="50" y2="20"/><line x1="86" y1="50" x2="80" y2="50"/><line x1="50" y1="86" x2="50" y2="80"/><line x1="14" y1="50" x2="20" y2="50"/><line x1="50" y1="50" x2="31" y2="39"/></g><g fill="currentColor"><path d="M48.6 50 L48.6 22 Q50 19 51.4 22 L51.4 50 Z"/><ellipse cx="57" cy="28" rx="5.2" ry="2.3" transform="rotate(-35 57 28)"/><ellipse cx="57.5" cy="36" rx="5.2" ry="2.3" transform="rotate(-35 57.5 36)"/><ellipse cx="57" cy="43.5" rx="4.6" ry="2.1" transform="rotate(-35 57 43.5)"/><ellipse cx="44" cy="31" rx="4.6" ry="2.1" transform="rotate(35 44 31)"/><ellipse cx="44" cy="39" rx="4.2" ry="2" transform="rotate(35 44 39)"/><circle cx="50" cy="50" r="5"/></g></svg>
+          <span class="wordmark"><span class="thyme">thyme</span><span class="it">it</span></span>
+        </a>
+        <p>The Help Center and privacy policy arrive with the app.</p>
+        <p>© <span id="year">2026</span> ThymeIt</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
