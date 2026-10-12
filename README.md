@@ -13,9 +13,19 @@ in the app repo: [`docs/product/website-plan.md`](https://github.com/bitPimps/th
 - `index.html`: landing page. Hero with the app's task card, the interactive season ruler
   ("same plants, four ZIP codes"), features, privacy, sources, price. Store badges read
   "Coming soon" until the listings exist.
+- `faq.html`: the Help Center. Sections and answers have **stable ids** (`#getting-started`,
+  `#restore`, …) that the app's help links will point to: don't rename them. Search and
+  `#anchor` deep links (which open the answer) are in `assets/js/main.js`.
+- `privacy.html`: privacy policy (the App Store and Google Play listing URL). Change the
+  effective date whenever what the app stores or shares changes, before the change ships.
+- `delete-data.html`: deleting app data, the iCloud/Google Drive backup and garden files.
+- `sources.html`: the publications and datasets behind the timings. The publication list is
+  generated from the app (see below).
 - `404.html`: not-found page (root-relative paths, since GitHub Pages serves it at any URL).
-- Planned (see the website plan): `faq.html` Help Center, `privacy.html`, `delete-data.html`,
-  `sources.html`, `llms.txt`, `sitemap.xml`, `robots.txt`.
+- `llms.txt`, `robots.txt`, `sitemap.xml`: keep `llms.txt` and the sitemap's `lastmod` dates
+  in step with page changes.
+
+Support email used on every page: `thymeit-support@lixlink.com`.
 
 ## Structure
 
@@ -40,6 +50,16 @@ GitHub Pages, **Settings → Pages → Build and deployment → Source: Deploy f
 Custom domain: `thymeit.lixlink.com` is in the `CNAME` file. At the DNS provider for
 `lixlink.com`, add a `CNAME` record `thymeit` → `bitpimps.github.io`, set the custom domain
 under **Settings → Pages**, and tick **Enforce HTTPS** once the certificate is issued.
+
+## Generated parts
+
+- **FAQ structured data:** the FAQPage JSON-LD in `faq.html` is generated from the visible
+  questions and answers. After editing the Help Center, run `node scripts/faq-schema.mjs`;
+  CI fails if it's out of date.
+- **Sources list:** from the app repo, run
+  `npm run site:sources -- ../thymeit.lixlink.com/sources.html` (it rewrites the block between
+  the `sources:start` / `sources:end` markers from the app's plant library). Re-run it whenever
+  the app's content sources change.
 
 ## Checks
 

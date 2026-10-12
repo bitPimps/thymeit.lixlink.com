@@ -42,6 +42,89 @@
     year.textContent = String(new Date().getFullYear());
   }
 
+  // ---- Help Center: search and deep links ------------------------------------------------
+  var faq = document.getElementById('faq');
+  if (faq) {
+    var filter = document.getElementById('faq-filter');
+    var empty = document.getElementById('faq-empty');
+    var status = document.getElementById('faq-status');
+    var items = Array.prototype.slice.call(faq.querySelectorAll('details'));
+    var sections = Array.prototype.slice.call(faq.querySelectorAll('section'));
+
+    var applyFilter = function () {
+      var words = filter ? filter.value.toLowerCase().split(/\s+/).filter(Boolean) : [];
+      var shown = 0;
+      items.forEach(function (item) {
+        var text = item.textContent.toLowerCase();
+        var match = words.every(function (word) {
+          return text.indexOf(word) !== -1;
+        });
+        item.hidden = !match;
+        // Open matches while searching, so the answer is right there. Only answers the
+        // search opened are closed again; ones the reader opened stay open.
+        if (words.length > 0 && match && !item.open) {
+          item.open = true;
+          item.setAttribute('data-search-opened', '');
+        } else if ((words.length === 0 || !match) && item.hasAttribute('data-search-opened')) {
+          item.open = false;
+          item.removeAttribute('data-search-opened');
+        }
+        if (match) {
+          shown++;
+        }
+      });
+      sections.forEach(function (section) {
+        section.hidden = !section.querySelector('details:not([hidden])');
+      });
+      empty.hidden = shown > 0;
+      if (status) {
+        status.textContent =
+          words.length === 0
+            ? ''
+            : shown === 0
+              ? 'No answers match.'
+              : shown + (shown === 1 ? ' answer matches.' : ' answers match.');
+      }
+    };
+
+    // Opens the answer with this id (clearing a search that hides it) and scrolls to it.
+    var openAnswer = function (id, scroll) {
+      var target = id && document.getElementById(id);
+      if (!target || target.tagName !== 'DETAILS') {
+        return false;
+      }
+      if (target.hidden && filter) {
+        filter.value = '';
+        applyFilter();
+      }
+      target.open = true;
+      target.removeAttribute('data-search-opened');
+      if (scroll) {
+        target.scrollIntoView();
+      }
+      return true;
+    };
+
+    // A link like faq.html#restore opens that answer.
+    openAnswer(window.location.hash.slice(1), false);
+    window.addEventListener('hashchange', function () {
+      openAnswer(window.location.hash.slice(1), true);
+    });
+    // In-page links to an answer: also when the hash is already that answer, or a search
+    // hides it.
+    faq.addEventListener('click', function (event) {
+      var link = event.target.closest('a[href^="#"]');
+      if (link && openAnswer(link.getAttribute('href').slice(1), true)) {
+        event.preventDefault();
+        history.replaceState(null, '', link.getAttribute('href'));
+      }
+    });
+
+    if (filter) {
+      filter.addEventListener('input', applyFilter);
+    }
+  }
+
   // ---- Season ruler ------------------------------------------------------------------------
   // Windows ThymeIt schedules for each city's ZIP, copied from the app's generated plant
   // library review sheet (docs/content/plant-library-review.md in bitPimps/thymeit).

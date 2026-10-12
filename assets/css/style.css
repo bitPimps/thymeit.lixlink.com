@@ -996,3 +996,260 @@ svg {
     gap: 0.25rem;
   }
 }
+
+/* ---- Content pages: Help Center, privacy, delete data, sources ----------------------- */
+
+/* `hidden` must win over the display rules below (search hides answers and sections). */
+[hidden] {
+  display: none !important;
+}
+
+.page-head {
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(1.5rem, 4vw, 2.5rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.page-head .wrap {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 48rem;
+  margin-inline: auto;
+}
+
+.page-head h1 {
+  font-size: var(--step-3);
+}
+
+.page-body {
+  padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(3rem, 8vw, 5rem);
+}
+
+.page-body > .wrap {
+  max-width: 48rem;
+}
+
+.prose {
+  display: grid;
+  gap: 1rem;
+  color: var(--muted);
+}
+
+.prose h2 {
+  font-size: var(--step-2);
+  margin-top: 1.5rem;
+  scroll-margin-top: 5rem;
+}
+
+.prose h3 {
+  font-size: var(--step-1);
+  color: var(--ink);
+  margin-top: 0.5rem;
+}
+
+.prose p,
+.prose ul,
+.prose ol {
+  margin: 0;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.prose strong {
+  color: var(--ink);
+}
+
+.prose code {
+  font-size: 0.9em;
+  background: var(--bg-soft);
+  border-radius: 6px;
+  padding: 0.1em 0.35em;
+}
+
+.prose a,
+.faq a {
+  color: var(--link);
+  text-underline-offset: 0.18em;
+}
+
+.note {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--fresh);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+}
+
+.meta {
+  font-size: var(--step--1);
+}
+
+/* Contents list at the top of long pages */
+.toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.toc a {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink);
+  font-size: var(--step--1);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.toc a:hover {
+  border-color: var(--fresh);
+}
+
+/* Help Center */
+.faq-search {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.faq-search label {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.faq-search input {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0 1rem;
+  font: inherit;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.faq-search input:focus-visible {
+  outline: 3px solid var(--fresh);
+  outline-offset: 1px;
+}
+
+.faq {
+  display: grid;
+  gap: 2.25rem;
+}
+
+.faq section {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.faq h2 {
+  font-size: var(--step-2);
+  scroll-margin-top: 5rem;
+}
+
+.faq details {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  scroll-margin-top: 5rem;
+}
+
+.faq summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.95rem 1.25rem;
+  font-weight: 600;
+  color: var(--ink);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: '+';
+  color: var(--fresh);
+  font-weight: 700;
+  flex: none;
+}
+
+.faq details[open] summary::after {
+  content: '−';
+}
+
+.faq summary:focus-visible {
+  outline: 3px solid var(--fresh);
+  outline-offset: -3px;
+  border-radius: var(--radius);
+}
+
+.faq .answer {
+  padding: 0 1.25rem 1.1rem;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.faq .answer p,
+.faq .answer ul,
+.faq .answer ol {
+  margin: 0;
+}
+
+.faq .answer ul,
+.faq .answer ol {
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.faq-empty {
+  font-weight: 500;
+}
+
+/* Sources list */
+.source-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.source-list li {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.8rem 1.1rem;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.source-list .publisher {
+  font-size: var(--step--1);
+}
+
+.site-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.site-footer nav a {
+  color: inherit;
+}
+
+.band .text-link {
+  color: var(--band-ink);
+}

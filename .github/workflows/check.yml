@@ -31,3 +31,13 @@ jobs:
             --no-progress
             '*.html'
           fail: true
+
+  faq-schema:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      # The FAQPage JSON-LD in faq.html must match the visible questions and answers.
+      - name: Check FAQ structured data
+        run: node scripts/faq-schema.mjs --check

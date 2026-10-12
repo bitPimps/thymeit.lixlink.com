@@ -1,0 +1,27 @@
+# ThymeIt
+
+> ThymeIt is a free garden calendar app for iPhone and Android (coming soon; not yet in the App Store or Google Play). From a US ZIP code it works out the user's USDA hardiness zone and median frost dates, then schedules planting, pruning and winter-care tasks for the plants they grow, with a reminder on the phone the morning each task is due. There is no account and no server: the garden is stored on the phone.
+
+## Key facts
+
+- Price: free, no ads, no in-app purchases.
+- Coverage: US ZIP codes (40,093), including Alaska and Hawaii. Zones from the 2023 USDA map (PRISM, Oregon State University); frost dates from NOAA 1991–2020 climate normals.
+- Plants: 66 (15 trees, 23 shrubs and vines, 9 perennials, 19 vegetables). Pruning timing for 45 of them; winter protection for roses, yew, arborvitae, boxwood and mums in zones 6 and colder.
+- Every care timing cites a university extension or botanic-garden publication (27 in all).
+- Tasks: Mark Complete, Snooze 3 days, Dismiss (skips one season). Tasks recur every year. Any care task can be turned off per plant; plants can be nicknamed.
+- Reminders: local notifications at 8am on the due date; no push server.
+- Privacy: no account, no analytics, no advertising code; exact location is never stored (only the nearest ZIP code).
+- Backup: optional and free, to the user's own iCloud (iPhone) or Google Drive hidden app folder (Android). Moving between iPhone and Android uses an exported garden file.
+- Changing location: Settings → Change location re-times open tasks.
+
+## Pages
+
+- [Home](https://thymeit.lixlink.com/): what ThymeIt does and how timing works
+- [Help Center](https://thymeit.lixlink.com/faq.html): setup, zones and frost dates, plants, pruning, tasks, reminders, backup, privacy, troubleshooting
+- [Privacy policy](https://thymeit.lixlink.com/privacy.html)
+- [Delete your data](https://thymeit.lixlink.com/delete-data.html)
+- [Sources](https://thymeit.lixlink.com/sources.html): the publications and datasets behind the timings
+
+## Support
+
+Email thymeit-support@lixlink.com
