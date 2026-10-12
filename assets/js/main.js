@@ -1,6 +1,6 @@
 /*
  * thymeit.lixlink.com: mobile nav toggle and the season ruler on the home page.
- * No dependencies, no tracking.
+ * No dependencies. (Analytics, website only, is the Google Tag Manager snippet in each page.)
  */
 
 (function () {

@@ -10,7 +10,7 @@
 - Every care timing cites a university extension or botanic-garden publication (27 in all).
 - Tasks: Mark Complete, Snooze 3 days, Dismiss (skips one season). Tasks recur every year. Any care task can be turned off per plant; plants can be nicknamed.
 - Reminders: local notifications at 8am on the due date; no push server.
-- Privacy: no account, no analytics, no advertising code; exact location is never stored (only the nearest ZIP code).
+- Privacy (app): no account, no analytics, no advertising code; exact location is never stored (only the nearest ZIP code). The website, not the app, uses Google Analytics 4 via Google Tag Manager for visit counts.
 - Backup: optional and free, to the user's own iCloud (iPhone) or Google Drive hidden app folder (Android). Moving between iPhone and Android uses an exported garden file.
 - Changing location: Settings → Change location re-times open tasks.
 

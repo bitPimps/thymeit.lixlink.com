@@ -41,3 +41,23 @@ jobs:
       # The FAQPage JSON-LD in faq.html must match the visible questions and answers.
       - name: Check FAQ structured data
         run: node scripts/faq-schema.mjs --check
+
+  analytics-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      # Every page loads the same Google Tag Manager container (script + noscript), so the
+      # privacy policy's description of this website stays true for every page.
+      - name: Check every page has the GTM snippet
+        run: |
+          missing=0
+          for page in *.html; do
+            count=$(grep -c 'GTM-WDTZSRVP' "$page")
+            if [ "$count" -ne 2 ]; then
+              echo "$page: expected the GTM script and noscript (found $count)"
+              missing=1
+            fi
+          done
+          exit $missing

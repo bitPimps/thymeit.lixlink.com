@@ -27,6 +27,11 @@ in the app repo: [`docs/product/website-plan.md`](https://github.com/bitPimps/th
 
 Support email used on every page: `thymeit-support@lixlink.com`.
 
+Analytics: every page loads Google Tag Manager container `GTM-WDTZSRVP` (its own GA4
+property, like steady.lixlink.com): the script right after `<head>`, the `<noscript>` iframe
+right after `<body>`. Add both to any new page. The app itself has no analytics; the privacy
+policy's "This website" section says so and must stay true to what the container loads.
+
 ## Structure
 
 ```
