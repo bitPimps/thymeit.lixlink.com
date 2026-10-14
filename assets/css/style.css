@@ -390,7 +390,7 @@ svg {
   font-size: var(--step--1);
 }
 
-/* Phone mock: the app's real home screen copy (src/app/home.tsx, plant library). */
+/* Phone mock: the app's real home screen copy (src/app/(tabs)/home.tsx, plant library). */
 .phone {
   justify-self: center;
   width: min(100%, 20rem);
@@ -452,6 +452,10 @@ svg {
   box-shadow: 0 1px 2px rgb(31 41 55 / 8%);
 }
 
+.task.now {
+  border-left-color: var(--amber);
+}
+
 .task-head {
   display: flex;
   justify-content: space-between;
@@ -485,6 +489,50 @@ svg {
   color: var(--due-ink);
 }
 
+/* "Soon" (within two weeks): Fresh Green tint, as in the app's DueBadge. */
+.badge.soon {
+  background: #e3f1e7;
+  border-color: #e3f1e7;
+  color: #2a5a3a;
+}
+
+/* Home's "To do" / "Coming up" headings. */
+.app-section {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--heading);
+  margin-bottom: -0.35rem;
+}
+
+/* A compact "Coming up" row (the app's TaskRow, closed). */
+.task-row {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 1px 2px rgb(31 41 55 / 8%);
+}
+
+/* The app's bottom tab bar, in the phone mock. */
+.app-tabs {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid var(--line);
+  padding-top: 0.45rem;
+  font-size: 0.58rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.app-tabs .on {
+  color: var(--heading);
+}
+
 .task-copy {
   font-size: 0.72rem;
   line-height: 1.45;
@@ -504,10 +552,6 @@ svg {
   border-radius: 9px;
   background: var(--fresh);
   color: var(--on-accent);
-}
-
-.app-add {
-  margin-top: auto;
 }
 
 .btn-app.secondary {
