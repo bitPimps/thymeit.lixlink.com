@@ -6,7 +6,7 @@
 
 - Price: free, no ads, no in-app purchases.
 - Coverage: US ZIP codes (40,093), including Alaska and Hawaii. Zones from the 2023 USDA map (PRISM, Oregon State University); frost dates from NOAA 1991–2020 climate normals.
-- Plants: 66 (15 trees, 23 shrubs and vines, 9 perennials, 19 vegetables). Pruning timing for 45 of them; winter protection for roses, yew, arborvitae, boxwood and mums in zones 6 and colder.
+- Plants: 66 (15 trees, 23 shrubs and vines, 9 perennials, 19 vegetables). Pruning timing for 45 of them; winter protection for roses, yew, arborvitae, boxwood and mums in zones 6 and colder. Plants not in the library can be added with the user's own yearly tasks and dates (not zone-adjusted).
 - Every care timing cites a university extension or botanic-garden publication (27 in all).
 - Tasks: Mark Complete, Snooze 3 days, Dismiss (skips one season). Tasks recur every year. Any care task can be turned off per plant; plants can be nicknamed.
 - Reminders: local notifications at 8am on the due date; no push server.
